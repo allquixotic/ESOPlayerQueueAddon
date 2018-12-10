@@ -203,11 +203,6 @@ local function pq_dqCb(data)
 	end
 end
 
-local function pq_cqCb(data)
-	pq_queue = {}
-	pq_printqCb(data)
-end
-
 local function pq_getqCb(data)
 	local theq = pq_getQueue()
 	if theq == "" or theq == nil then theq = "(Queue is Empty)" end
@@ -218,6 +213,11 @@ local function pq_printqCb(data)
 	local theq = pq_getQueue()
 	if theq == "" or theq == nil then theq = "(Queue is Empty)" end
 	d(theq)
+end
+
+local function pq_cqCb(data)
+	pq_queue = {}
+	pq_printqCb(data)
 end
 
 local function pq_copyqCb(data)
